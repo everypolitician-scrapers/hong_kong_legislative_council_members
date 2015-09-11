@@ -36,6 +36,19 @@ def process_area(area)
   return area_info
 end
 
+# if they have two affiliations listed then pick the sensible one where we
+# mean the one listed in the breakdown at https://en.wikipedia.org/wiki/Legislative_Council_of_Hong_Kong
+def fix_parties(parties)
+  return 'Labour Party' if parties.to_s.index('Labour Party')
+  return 'Democratic Alliance for the Betterment and Progress of Hong Kong' if parties.to_s.index('Democratic Alliance for the Betterment and Progress of Hong Kong')
+  return 'Business and Professionals Alliance for Hong Kong' if parties.to_s.index('Business and Professionals Alliance for Hong Kong')
+  return 'People Power' if parties.to_s.index('People Power')
+  return 'League of Social Democrats' if parties.to_s.index('League of Social Democrats')
+
+  # fall back to the first one in the list
+  return parties[0].to_s
+end
+
 def scrape_person(url)
   noko = noko_for(url)
   bio = noko.css('div#container div')
@@ -63,7 +76,12 @@ def scrape_person(url)
   area = bio.xpath('//p[contains(.,"Constituency")]/following-sibling::ul[not(position() > 1)]/li/text()').to_s
   area_info = process_area(area)
 
-  faction = bio.xpath('//p[contains(.,"Political affiliation")]/following-sibling::ul[not(position() > 1)]/li/text()').to_s.tidy
+  faction = bio.xpath('//p[contains(.,"Political affiliation")]/following-sibling::ul[not(position() > 1)]/li/text()')
+  if faction.size > 1 then
+    faction = fix_parties(faction)
+  else
+    faction = faction.to_s.tidy
+  end
 
   email = bio.xpath('//table/tr/td/a[contains(@href, "mailto")]/text()').to_s.tidy
 
