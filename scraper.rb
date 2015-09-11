@@ -1,25 +1,96 @@
-# This is a template for a Ruby scraper on morph.io (https://morph.io)
-# including some code snippets below that you should find helpful
+# #!/bin/env ruby
+# encoding: utf-8
 
-# require 'scraperwiki'
-# require 'mechanize'
-#
-# agent = Mechanize.new
-#
-# # Read in a page
-# page = agent.get("http://foo.com")
-#
-# # Find somehing on the page using css selectors
-# p page.at('div.content')
-#
-# # Write out to the sqlite database using scraperwiki library
-# ScraperWiki.save_sqlite(["name"], {"name" => "susan", "occupation" => "software developer"})
-#
-# # An arbitrary query against the database
-# ScraperWiki.select("* from data where 'name'='peter'")
+require 'scraperwiki'
+require 'nokogiri'
+require 'open-uri/cached'
+require 'date'
 
-# You don't have to do things with the Mechanize or ScraperWiki libraries.
-# You can use whatever gems you want: https://morph.io/documentation/ruby
-# All that matters is that your final data is written to an SQLite database
-# called "data.sqlite" in the current working directory which has at least a table
-# called "data".
+OpenURI::Cache.cache_path = '.cache'
+
+class String
+  def tidy
+    self.gsub(/[[:space:]]+/, ' ').strip
+  end
+end
+
+def noko_for(url)
+  Nokogiri::HTML(open(url).read)
+end
+
+def scrape_list(url)
+  noko = noko_for(url)
+  noko.css('.bio-member-detail-1 a/@href').each do |link|
+    bio = URI.join(url, link.to_s)
+    scrape_person(bio)
+  end
+end
+
+def process_area(area)
+  area_info = {}
+
+  area_info[:area_type] = 'functional' if area.index('Functional')
+  area_info[:area_type] = 'geographical' if area.index('Geographical')
+  area_info[:area] = area.gsub(/.*(?:Geographical|Functional)\s+Constituency\s+[–-]\s+/, '').tidy
+
+  return area_info
+end
+
+def scrape_person(url)
+  noko = noko_for(url)
+  bio = noko.css('div#container div')
+  # everything after the comma is qualification letters
+
+  id = url.to_s.gsub(/.*(yr\d\d.*)\.htm/, '\1')
+
+  name_parts = bio.css('h2').text.to_s.split(',')
+  name = name_parts.shift.to_s
+  honorific_prefix = ''
+  name.gsub(/^(Hon|Prof|Dr)\s+(.*)$/) do
+    name = $2
+    honorific_prefix = $1
+  end
+  name = name.tidy
+  honorific_prefix = honorific_prefix.tidy
+
+  name_suffix = name_parts.join(', ').tidy
+
+  img = URI.join(url, bio.css('img/@src').to_s).to_s
+
+  area = bio.xpath('//p[contains(.,"Constituency")]/following-sibling::ul[not(position() > 1)]/li/text()').to_s
+  area_info = process_area(area)
+
+  faction = bio.xpath('//p[contains(.,"Political affiliation")]/following-sibling::ul[not(position() > 1)]/li/text()').to_s.tidy
+
+  email = bio.xpath('//table/tr/td/a[contains(@href, "mailto")]/text()').to_s.tidy
+
+  website = bio.xpath('//table/tr/td[contains(.,"Homepage")]/following-sibling::td/a/text()').to_s.tidy
+
+  data = {
+    id: id,
+    term: 5,
+    name: name,
+    honorific_suffix: name_suffix,
+    honorific_prefix: honorific_prefix,
+    img: img,
+    faction: faction,
+    email: email,
+    website: website,
+    source: url.to_s
+  }
+
+  data = data.merge(area_info)
+
+  ScraperWiki.save_sqlite([:id], data)
+end
+
+term = {
+  id: 5,
+  name: 'Fifth Legislative Council',
+  start_date: '2012-09-12',
+  source: 'http://www.legco.gov.hk/general/english/intro/hist_lc.htm',
+}
+
+ScraperWiki.save_sqlite([:id], term, 'terms')
+
+scrape_list('http://www.legco.gov.hk/general/english/members/yr12-16/biographies.htm')
