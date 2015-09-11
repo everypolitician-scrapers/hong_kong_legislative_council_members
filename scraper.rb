@@ -46,12 +46,12 @@ def scrape_person(url)
   name_parts = bio.css('h2').text.to_s.split(',')
   name = name_parts.shift.to_s
   honorific_prefix = ''
-  name.gsub(/^(Hon|Prof|Dr)\s+(.*)$/) do
+  name.gsub(/^((?:(?:Hon|Prof|Dr|Ir|Mrs)\s+)+)(.*)$/) do
     name = $2
     honorific_prefix = $1
   end
   name = name.tidy
-  honorific_prefix = honorific_prefix.tidy
+  honorific_prefix = honorific_prefix.tidy if honorific_prefix
 
   name_suffix = name_parts.join(', ').tidy
 
