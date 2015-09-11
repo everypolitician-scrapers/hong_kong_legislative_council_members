@@ -65,6 +65,8 @@ def scrape_person(url)
   email = bio.xpath('//table/tr/td/a[contains(@href, "mailto")]/text()').to_s.tidy
 
   website = bio.xpath('//table/tr/td[contains(.,"Homepage")]/following-sibling::td/a/text()').to_s.tidy
+  phone = bio.xpath('//table/tr/td[contains(.,"telephone")]/following-sibling::td[position() = 2]/text()').to_s.tidy
+  fax = bio.xpath('//table/tr/td[contains(.,"fax")]/following-sibling::td[position() = 2]/text()').to_s.tidy
 
   data = {
     id: id,
@@ -76,6 +78,8 @@ def scrape_person(url)
     faction: faction,
     email: email,
     website: website,
+    phone: phone,
+    fax: fax,
     source: url.to_s
   }
 
