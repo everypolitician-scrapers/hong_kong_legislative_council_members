@@ -53,6 +53,9 @@ def scrape_person(url)
   name = name.tidy
   honorific_prefix = honorific_prefix.tidy if honorific_prefix
 
+  gender = '';
+  gender = 'female' if honorific_prefix.index('Mrs')
+
   name_suffix = name_parts.join(', ').tidy
 
   img = URI.join(url, bio.css('img/@src').to_s).to_s
@@ -80,6 +83,7 @@ def scrape_person(url)
     website: website,
     phone: phone,
     fax: fax,
+    gender: gender,
     source: url.to_s
   }
 
