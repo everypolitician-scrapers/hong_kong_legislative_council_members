@@ -1,0 +1,45 @@
+---
+request:
+  method: get
+  uri: http://www.legco.gov.hk/general/english/members/yr12-16/ynk.htm
+  body:
+    encoding: US-ASCII
+    string: ''
+  headers:
+    Accept-Encoding:
+    - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+    Accept:
+    - '*/*'
+    User-Agent:
+    - Ruby
+response:
+  status:
+    code: 200
+    message: OK
+  headers:
+    Date:
+    - Tue, 02 Aug 2016 14:23:07 GMT
+    Server:
+    - Apache/2.2.3 (Red Hat)
+    Last-Modified:
+    - Wed, 02 Mar 2016 08:03:34 GMT
+    Etag:
+    - '"880a4b-16c5-52d0c5183c180"'
+    Accept-Ranges:
+    - bytes
+    Content-Length:
+    - '5829'
+    X-Ua-Compatible:
+    - IE=edge
+    Cache-Control:
+    - max-age=0, private, no-store, no-cache, must-revalidate
+    Connection:
+    - close
+    Content-Type:
+    - text/html
+    Set-Cookie:
+    - BIGipServerWeb_80_pool=352400138.20480.0000; path=/
+  body:
+    encoding: UTF-8
+  http_version: 
+recorded_at: Tue, 02 Aug 2016 14:23:08 GMT
