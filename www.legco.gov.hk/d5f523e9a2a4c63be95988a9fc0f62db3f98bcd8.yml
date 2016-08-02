@@ -1,0 +1,45 @@
+---
+request:
+  method: get
+  uri: http://www.legco.gov.hk/general/english/members/yr12-16/wcw.htm
+  body:
+    encoding: US-ASCII
+    string: ''
+  headers:
+    Accept-Encoding:
+    - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+    Accept:
+    - '*/*'
+    User-Agent:
+    - Ruby
+response:
+  status:
+    code: 200
+    message: OK
+  headers:
+    Date:
+    - Tue, 02 Aug 2016 14:18:26 GMT
+    Server:
+    - Apache/2.2.3 (Red Hat)
+    Last-Modified:
+    - Tue, 12 Aug 2014 05:14:31 GMT
+    Etag:
+    - '"8804b5-15d1-50067bf14dbc0"'
+    Accept-Ranges:
+    - bytes
+    Content-Length:
+    - '5585'
+    X-Ua-Compatible:
+    - IE=edge
+    Cache-Control:
+    - max-age=0, private, no-store, no-cache, must-revalidate
+    Connection:
+    - close
+    Content-Type:
+    - text/html
+    Set-Cookie:
+    - BIGipServerWeb_80_pool=352400138.20480.0000; path=/
+  body:
+    encoding: ASCII-8BIT
+  http_version: 
+recorded_at: Tue, 02 Aug 2016 14:18:26 GMT
