@@ -1,0 +1,45 @@
+---
+request:
+  method: get
+  uri: http://www.legco.gov.hk/general/english/members/yr12-16/lyc.htm
+  body:
+    encoding: US-ASCII
+    string: ''
+  headers:
+    Accept-Encoding:
+    - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+    Accept:
+    - '*/*'
+    User-Agent:
+    - Ruby
+response:
+  status:
+    code: 200
+    message: OK
+  headers:
+    Date:
+    - Tue, 02 Aug 2016 14:13:03 GMT
+    Server:
+    - Apache/2.2.3 (Red Hat)
+    Last-Modified:
+    - Mon, 09 Feb 2015 06:49:12 GMT
+    Etag:
+    - '"5a582e8-164c-50ea22af8ea00"'
+    Accept-Ranges:
+    - bytes
+    Content-Length:
+    - '5708'
+    X-Ua-Compatible:
+    - IE=edge
+    Cache-Control:
+    - max-age=0, private, no-store, no-cache, must-revalidate
+    Connection:
+    - close
+    Content-Type:
+    - text/html
+    Set-Cookie:
+    - BIGipServerWeb_80_pool=184627978.20480.0000; path=/
+  body:
+    encoding: ASCII-8BIT
+  http_version: 
+recorded_at: Tue, 02 Aug 2016 14:13:04 GMT
