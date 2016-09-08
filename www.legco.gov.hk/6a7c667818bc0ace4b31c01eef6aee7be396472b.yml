@@ -18,13 +18,13 @@ response:
     message: OK
   headers:
     Date:
-    - Tue, 06 Sep 2016 12:40:53 GMT
+    - Thu, 08 Sep 2016 14:31:31 GMT
     Server:
     - Apache/2.2.3 (Red Hat)
     Last-Modified:
-    - Wed, 07 Oct 2015 08:20:13 GMT
+    - Thu, 08 Sep 2016 08:54:00 GMT
     Etag:
-    - '"880466-16c2-5217f6a632940"'
+    - '"880466-16c2-53bfb2bba1a00"'
     Accept-Ranges:
     - bytes
     Content-Length:
@@ -42,4 +42,4 @@ response:
   body:
     encoding: ASCII-8BIT
   http_version: 
-recorded_at: Tue, 06 Sep 2016 12:40:53 GMT
+recorded_at: Thu, 08 Sep 2016 14:31:31 GMT
