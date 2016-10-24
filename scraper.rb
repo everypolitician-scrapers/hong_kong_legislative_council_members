@@ -89,7 +89,7 @@ def scrape_person(url)
 
   data = {
     id: id,
-    term: 5,
+    term: 6,
     name: name,
     honorific_suffix: name_suffix,
     honorific_prefix: honorific_prefix,
@@ -108,13 +108,4 @@ def scrape_person(url)
   ScraperWiki.save_sqlite([:id], data)
 end
 
-term = {
-  id: 5,
-  name: 'Fifth Legislative Council',
-  start_date: '2012-09-12',
-  source: 'http://www.legco.gov.hk/general/english/intro/hist_lc.htm',
-}
-
-ScraperWiki.save_sqlite([:id], term, 'terms')
-
-scrape_list('http://www.legco.gov.hk/general/english/members/yr12-16/biographies.htm')
+scrape_list("http://www.legco.gov.hk/general/english/members/yr16-20/biographies.htm")
