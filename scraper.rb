@@ -79,6 +79,7 @@ def scrape_person(url)
     faction = fix_parties(faction)
   else
     faction = faction.to_s.tidy
+    faction = 'Independent' if faction.empty?
   end
 
   email = bio.xpath('//table/tr/td/a[contains(@href, "mailto")]/text()').to_s.tidy
