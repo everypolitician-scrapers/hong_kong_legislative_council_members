@@ -10,16 +10,21 @@ require 'scraperwiki'
 # OpenURI::Cache.cache_path = '.cache'
 require 'scraped_page_archive/open-uri'
 
+require_rel 'lib'
+
+class String
+  def tidy
+    self.gsub(/[[:space:]]+/, ' ').strip
+  end
+end
+
 def noko_for(url)
   Nokogiri::HTML(open(url).read)
 end
 
-def scrape_list(url)
-  noko = noko_for(url)
-  noko.css('.bio-member-detail-1 a/@href').each do |link|
-    bio = URI.join(url, link.to_s)
-    scrape_person(bio)
-  end
+def scrape(h)
+  url, klass = h.to_a.first
+  klass.new(response: Scraped::Request.new(url: url).response)
 end
 
 def process_area(area)
@@ -104,8 +109,9 @@ def scrape_person(url)
 
   data = data.merge(area_info)
 
+  puts data.reject { |k, v| v.to_s.empty? }.sort_by { |k, v| k }.to_h
   ScraperWiki.save_sqlite([:id], data)
 end
 
-ScraperWiki.sqliteexecute('DROP TABLE data') rescue nil
-scrape_list('http://www.legco.gov.hk/general/english/members/yr16-20/biographies.htm')
+list_url = "http://www.legco.gov.hk/general/english/members/yr16-20/biographies.htm"
+(scrape list_url => MembersPage).member_urls.each { |url| scrape_person(url) }
