@@ -9,7 +9,7 @@ request:
     Accept-Encoding:
     - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
     Accept:
-    - '*/*'
+    - "*/*"
     User-Agent:
     - Ruby
 response:
@@ -18,7 +18,7 @@ response:
     message: OK
   headers:
     Date:
-    - Mon, 24 Apr 2017 10:38:58 GMT
+    - Mon, 24 Apr 2017 10:59:23 GMT
     Server:
     - Apache/2.2.3 (Red Hat)
     Last-Modified:
@@ -42,4 +42,4 @@ response:
   body:
     encoding: ASCII-8BIT
   http_version: 
-recorded_at: Mon, 24 Apr 2017 10:38:59 GMT
+recorded_at: Mon, 24 Apr 2017 10:59:23 GMT
