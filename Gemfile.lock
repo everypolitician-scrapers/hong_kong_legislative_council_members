@@ -17,10 +17,10 @@ GIT
 
 GIT
   remote: https://github.com/everypolitician/scraper_test.git
-  revision: a217cbd51d0544261c059f877628ed384b8844ac
+  revision: a8a6c795ea1544bc95e2f7a1dbb132ba8c80ed98
   specs:
     scraper_test (0.1.0)
-      minitest
+      minitest (~> 5.0)
       pry
       vcr (>= 3.0.3)
       webmock (>= 2.0)
@@ -44,7 +44,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.5.0)
+    addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     ast (2.3.0)
     coderay (1.1.1)
