@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # #!/bin/env ruby
 # encoding: utf-8
 
@@ -8,7 +9,7 @@ require 'date'
 
 class String
   def tidy
-    self.gsub(/[[:space:]]+/, ' ').strip
+    gsub(/[[:space:]]+/, ' ').strip
   end
 end
 
@@ -31,7 +32,7 @@ def process_area(area)
   area_info[:area_type] = 'geographical' if area.index('Geographical')
   area_info[:area] = area.gsub(/.*(?:Geographical|Functional)\s+Constituency\s+[–-]\s+/, '').tidy
 
-  return area_info
+  area_info
 end
 
 # if they have two affiliations listed then pick the sensible one where we
@@ -44,7 +45,7 @@ def fix_parties(parties)
   return 'League of Social Democrats' if parties.to_s.index('League of Social Democrats')
 
   # fall back to the first one in the list
-  return parties[0].to_s
+  parties[0].to_s
 end
 
 def scrape_person(url)
@@ -58,13 +59,13 @@ def scrape_person(url)
   name = name_parts.shift.to_s
   honorific_prefix = ''
   name.gsub(/^((?:(?:Hon|Prof|Dr|Ir|Mrs)\s+)+)(.*)$/) do
-    name = $2
-    honorific_prefix = $1
+    name = Regexp.last_match(2)
+    honorific_prefix = Regexp.last_match(1)
   end
   name = name.tidy
   honorific_prefix = honorific_prefix.tidy if honorific_prefix
 
-  gender = '';
+  gender = ''
   gender = 'female' if honorific_prefix.index('Mrs')
 
   name_suffix = name_parts.join(', ').tidy
@@ -75,7 +76,7 @@ def scrape_person(url)
   area_info = process_area(area)
 
   faction = bio.xpath('//p[contains(.,"Political affiliation")]/following-sibling::ul[not(position() > 1)]/li/text()')
-  if faction.size > 1 then
+  if faction.size > 1
     faction = fix_parties(faction)
   else
     faction = faction.to_s.tidy
@@ -89,19 +90,19 @@ def scrape_person(url)
   fax = bio.xpath('//table/tr/td[contains(.,"fax")]/following-sibling::td[position() = 2]/text()').to_s.tidy
 
   data = {
-    id: id,
-    term: 6,
-    name: name,
+    id:               id,
+    term:             6,
+    name:             name,
     honorific_suffix: name_suffix,
     honorific_prefix: honorific_prefix,
-    img: img,
-    faction: faction,
-    email: email,
-    website: website,
-    phone: phone,
-    fax: fax,
-    gender: gender,
-    source: url.to_s
+    img:              img,
+    faction:          faction,
+    email:            email,
+    website:          website,
+    phone:            phone,
+    fax:              fax,
+    gender:           gender,
+    source:           url.to_s,
   }
 
   data = data.merge(area_info)
@@ -109,4 +110,4 @@ def scrape_person(url)
   ScraperWiki.save_sqlite([:id], data)
 end
 
-scrape_list("http://www.legco.gov.hk/general/english/members/yr16-20/biographies.htm")
+scrape_list('http://www.legco.gov.hk/general/english/members/yr16-20/biographies.htm')
