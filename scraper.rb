@@ -107,4 +107,5 @@ def scrape_person(url)
   ScraperWiki.save_sqlite([:id], data)
 end
 
+ScraperWiki.sqliteexecute('DROP TABLE data') rescue nil
 scrape_list('http://www.legco.gov.hk/general/english/members/yr16-20/biographies.htm')
