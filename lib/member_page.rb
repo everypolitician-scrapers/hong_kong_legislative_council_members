@@ -7,7 +7,11 @@ class MemberPage < Scraped::HTML
   decorator Scraped::Response::Decorator::CleanUrls
 
   field :id do
-    url.gsub('.htm', '').split('members/').last
+    [term, File.basename(url, '.htm')].join('/')
+  end
+
+  field :term do
+    File.dirname(url).split('/').last
   end
 
   field :name do
