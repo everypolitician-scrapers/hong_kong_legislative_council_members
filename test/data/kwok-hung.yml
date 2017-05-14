@@ -1,0 +1,20 @@
+:url: http://www.legco.gov.hk/general/english/members/yr16-20/lkh.htm
+:class: MemberPage
+:to_h:
+  :id: yr16-20/lkh
+  :term: yr16-20
+  :name: LEUNG Kwok-hung
+  :honorific_prefix: Hon
+  :honorific_suffix: ''
+  :gender:
+  # The member's page lists an affiliation with a non party group
+  # This test ensures that :faction does not contain the non part group
+  :faction: League of Social Democrats
+  :email: longhairlongmarch@yahoo.com.hk
+  :website: ''
+  :phone: 2537 0229
+  :fax: 2537 0119
+  :img: http://www.legco.gov.hk/images/mem_1620/lkh.jpg
+  :area: New Territories East
+  :area_type: geographical
+  :source: http://www.legco.gov.hk/general/english/members/yr16-20/lkh.htm

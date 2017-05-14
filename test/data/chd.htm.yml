@@ -1,0 +1,20 @@
+---
+:class: MemberPage
+:url: http://www.legco.gov.hk/general/english/members/yr16-20/chd.htm
+:to_h:
+  :id: yr16-20/chd
+  :term: yr16-20
+  :name: CHU Hoi-dick
+  :honorific_prefix: Hon
+  :honorific_suffix: ''
+  :gender:
+  # Tests that members with no listed affiliation are recorded as Independent
+  :faction: Independent
+  :email: info@chuhoidick.hk
+  :website: ''
+  :phone: 2809 2102
+  :fax: 2811 2210
+  :img: http://www.legco.gov.hk/images/mem_1620/chd.jpg
+  :area: New Territories West
+  :area_type: geographical
+  :source: http://www.legco.gov.hk/general/english/members/yr16-20/chd.htm
