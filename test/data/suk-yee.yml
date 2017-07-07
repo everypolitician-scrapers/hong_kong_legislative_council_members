@@ -1,0 +1,19 @@
+:url: http://www.legco.gov.hk/general/english/members/yr16-20/ilsy.htm
+:class: MemberPage
+:to_h:
+  :id: yr16-20/ilsy
+  :term: yr16-20
+  :name: Regina IP LAU Suk-yee
+  :honorific_prefix: Hon Mrs
+  :honorific_suffix: GBS, JP
+  :gender: female
+  :faction: New People's Party
+  :email: iplau@reginaip.hk
+  :website: http://www.reginaip.hk
+  # TODO: Split multiple phone numbers then combine with ';'
+  :phone: 2537 3267 / 2537 3265
+  :fax: 2810 0358
+  :img: http://www.legco.gov.hk/images/mem_1620/ilsy.jpg
+  :area: Hong Kong Island
+  :area_type: geographical
+  :source: http://www.legco.gov.hk/general/english/members/yr16-20/ilsy.htm
