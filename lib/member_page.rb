@@ -38,7 +38,7 @@ class MemberPage < Scraped::HTML
   end
 
   field :email do
-    bio.xpath('//table/tr/td/a[contains(@href, "mailto")]/text()').to_s.tidy
+    bio.xpath('//table/tr/td/a[contains(@href, "mailto")]').map(&:text).map(&:tidy).join(';')
   end
 
   field :website do
