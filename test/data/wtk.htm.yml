@@ -1,0 +1,21 @@
+---
+:class: MemberPage
+:url: http://www.legco.gov.hk/general/english/members/yr16-20/wtk.htm
+:to_h:
+  :id: yr16-20/wtk
+  :term: yr16-20
+  :name: WONG Ting-kwong
+  :honorific_prefix: Hon
+  :honorific_suffix: SBS, JP
+  :gender: 
+  :faction: Democratic Alliance for the Betterment and Progress of Hong Kong
+  :email: tkwong@dab.org.hk
+  :website: ''
+  :phone: 2826 9152
+  :fax: 2826 9148
+  # TODO: The image is a PDF icon, not the member's photo.
+  # Issue: https://github.com/everypolitician/everypolitician-data/issues/33716
+  :img: http://www.legco.gov.hk/images/english/pdf.gif
+  :area: Import and Export
+  :area_type: functional
+  :source: http://www.legco.gov.hk/general/english/members/yr16-20/wtk.htm
