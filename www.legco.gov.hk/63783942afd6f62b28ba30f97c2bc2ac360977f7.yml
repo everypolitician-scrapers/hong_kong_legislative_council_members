@@ -18,7 +18,7 @@ response:
     message: OK
   headers:
     Date:
-    - Thu, 07 Sep 2017 02:50:42 GMT
+    - Fri, 08 Sep 2017 00:09:12 GMT
     Server:
     - Apache/2.2.3 (Red Hat)
     Last-Modified:
@@ -42,4 +42,4 @@ response:
   body:
     encoding: UTF-8
   http_version: 
-recorded_at: Thu, 07 Sep 2017 02:50:43 GMT
+recorded_at: Fri, 08 Sep 2017 00:09:12 GMT
