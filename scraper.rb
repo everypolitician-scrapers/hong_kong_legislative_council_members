@@ -80,7 +80,7 @@ def scrape_person(url)
     faction = 'Independent' if faction.empty?
   end
 
-  email = bio.xpath('//table/tr/td/a[contains(@href, "mailto")]/text()').to_s.tidy
+  email = bio.xpath('//table/tr/td/a[contains(@href, "mailto")]').map(&:text).map(&:tidy).join(";")
 
   website = bio.xpath('//table/tr/td[contains(.,"Homepage")]/following-sibling::td/a/text()').to_s.tidy
   phone = bio.xpath('//table/tr/td[contains(.,"telephone")]/following-sibling::td[position() = 2]/text()').to_s.tidy
