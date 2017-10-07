@@ -42,7 +42,7 @@ def fix_parties(parties)
   return 'League of Social Democrats' if parties.to_s.index('League of Social Democrats')
 
   # fall back to the first one in the list
-  parties[0].to_s
+  parties[0].to_s.tidy
 end
 
 def scrape_person(url)
