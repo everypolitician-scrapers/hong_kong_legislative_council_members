@@ -18,13 +18,13 @@ response:
     message: OK
   headers:
     Date:
-    - Wed, 20 Jun 2018 00:55:14 GMT
+    - Thu, 21 Jun 2018 13:29:20 GMT
     Server:
     - Apache/2.2.3 (Red Hat)
     Last-Modified:
     - Thu, 09 Nov 2017 01:30:09 GMT
     Etag:
-    - '"2a600f3-1723-55d82bea26a40"'
+    - '"60a82ac-1723-55d82bea26a40"'
     Accept-Ranges:
     - bytes
     Content-Length:
@@ -38,8 +38,8 @@ response:
     Content-Type:
     - text/html
     Set-Cookie:
-    - BIGipServerWeb_80_pool=352400138.20480.0000; path=/
+    - BIGipServerWeb_80_pool=184627978.20480.0000; path=/
   body:
     encoding: UTF-8
   http_version: 
-recorded_at: Wed, 20 Jun 2018 00:55:14 GMT
+recorded_at: Thu, 21 Jun 2018 13:29:20 GMT
