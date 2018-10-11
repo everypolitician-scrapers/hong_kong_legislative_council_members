@@ -18,13 +18,13 @@ response:
     message: OK
   headers:
     Date:
-    - Wed, 10 Oct 2018 18:44:29 GMT
+    - Thu, 11 Oct 2018 15:51:10 GMT
     Server:
     - Apache/2.2.3 (Red Hat)
     Last-Modified:
     - Tue, 17 Jul 2018 08:29:16 GMT
     Etag:
-    - '"60a8296-1836-5712dbdd6ef00"'
+    - '"2a600b9-1836-5712dbdd6ef00"'
     Accept-Ranges:
     - bytes
     Content-Length:
@@ -38,8 +38,8 @@ response:
     Content-Type:
     - text/html
     Set-Cookie:
-    - BIGipServerWeb_80_pool=184627978.20480.0000; path=/; Httponly
+    - BIGipServerWeb_80_pool=352400138.20480.0000; path=/; Httponly
   body:
     encoding: UTF-8
   http_version: 
-recorded_at: Wed, 10 Oct 2018 18:44:29 GMT
+recorded_at: Thu, 11 Oct 2018 15:51:10 GMT
