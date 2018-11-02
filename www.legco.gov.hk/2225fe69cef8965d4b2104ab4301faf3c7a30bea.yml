@@ -18,13 +18,13 @@ response:
     message: OK
   headers:
     Date:
-    - Wed, 31 Oct 2018 21:49:07 GMT
+    - Fri, 02 Nov 2018 19:12:59 GMT
     Server:
     - Apache/2.2.3 (Red Hat)
     Last-Modified:
-    - Mon, 30 Jul 2018 08:53:48 GMT
+    - Thu, 01 Nov 2018 10:49:15 GMT
     Etag:
-    - '"2a60093-16f5-572339983bf00"'
+    - '"2a60093-16f5-579982b7aa0c0"'
     Accept-Ranges:
     - bytes
     Content-Length:
@@ -42,4 +42,4 @@ response:
   body:
     encoding: UTF-8
   http_version: 
-recorded_at: Wed, 31 Oct 2018 21:49:07 GMT
+recorded_at: Fri, 02 Nov 2018 19:12:59 GMT
